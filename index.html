@@ -9,11 +9,402 @@
 <body>
     <script src="js/pixi.min.js"></script>
     <script>
-		var app = new PIXI.Application(500,350);
+		var app = new PIXI.Application(1170,2532);
         document.body.appendChild(app.view);
+        var door = new PIXI.Sprite.fromImage("res/door.png");
+        app.stage.addChild(door);
+        door.visible=false;
+        door.width=1170;
+        door.height=2532;
+        var person1=new PIXI.Sprite.fromImage("res/person1.png");
+        app.stage.addChild(person1);
+        person1.x=200;
+        person1.y=1700;
+        person1.scale.x=0.7;
+        person1.scale.y=0.7;
+        person1.visible=false;
+        person1.interactive=true;
+        person1.on("click",p1);
+        function p1()
+        {
+        	//var ques1=new PIXI.Sprite.fromImage("res/ques1.png");
+        	//app.stage.addChild(ques1);
+        	//ques1.width=1170;
+        	//ques1.height=2532;
+        	//var T0=new PIXI.Text("请问您选择什么问题？");
+        	//app.stage.addChild(T0);
+        	//T0.scale.x=3;
+        	//T0.scale.y=3;
+        	//T0.x=250;
+        	//T0.y=800;
+        	//var T1=new PIXI.Text("余姚草编什么时候达到兴旺时期？");
+        	//app.stage.addChild(T1);
+        	//T1.scale.x=2;
+        	//T1.scale.y=2;
+        	//T1.x=250;
+        	//T1.y=2000;
+        }
+        var person2=new PIXI.Sprite.fromImage("res/person2.png");
+        app.stage.addChild(person2);
+        person2.scale.x=0.6;
+        person2.scale.y=0.6;
+        person2.x=380;
+        person2.y=1540;
+        person2.visible=false;
+        person2.interactive=true;
+        person2.on("click",p2);
+        function p2()
+        {
+        	var ques2=new PIXI.Sprite.fromImage("res/ques2.png");
+        	app.stage.addChild(ques2);
+        	ques2.width=1170;
+        	ques2.height=2532;
+        	var box1=new PIXI.Sprite.fromImage("res/box.png");
+        	app.stage.addChild(box1);
+        	box1.scale.x=0.4;
+        	box1.scale.y=0.4;
+        	box1.x=650;
+        	box1.y=1400;
+        	var box2=new PIXI.Sprite.fromImage("res/box.png");
+        	app.stage.addChild(box2);
+        	box2.scale.x=0.4;
+        	box2.scale.y=0.4;
+        	box2.x=650;
+        	box2.y=1650;
+        	var box3=new PIXI.Sprite.fromImage("res/box.png");
+        	app.stage.addChild(box3);
+        	box3.scale.x=0.4;
+        	box3.scale.y=0.4;
+        	box3.x=650;
+        	box3.y=1900;
+        	var key=new PIXI.Sprite.fromImage("res/key.png");
+        	app.stage.addChild(key);
+        	key.scale.x=0.4;
+        	key.scale.y=0.4;
+        	key.x=850;
+        	key.y=1050;
+        	key.interactive=true;
+        	key.on("mousedown",pdown);
+        	key.on("mouseup",pup);
+        	key.on("mousemove",td);
+        	function pdown()
+        {
+        	flag=1;
+        }
+        function pup()
+        {
+        	flag=0;
+        }
+        function td(event)
+        {
+        	if(flag)
+        	{
+        		var pos=event.data.getLocalPosition(app.stage);
+        		key.x=pos.x;
+        		key.y=pos.y;
+        	}
+        }
+        }
+        
+        var person3=new PIXI.Sprite.fromImage("res/person3.png");
+        app.stage.addChild(person3);
+        person3.scale.x=0.6;
+        person3.scale.y=0.6;
+        person3.x=520;
+        person3.y=1700;
+        person3.visible=false;
+        person3.interactive=true;
+        person3.on("click",p3);
+        function p3()
+        {
+        	
+        }
+        var person4=new PIXI.Sprite.fromImage("res/person4.png");
+        app.stage.addChild(person4);
+        person4.scale.x=0.6;
+        person4.scale.y=0.6;
+        person4.x=800;
+        person4.y=1540;
+        person4.visible=false;
+        person4.interactive=true;
+        person4.on("click",p4);
+        function p4()
+       {
+       	
+       }
+       var person5=new PIXI.Sprite.fromImage("res/person5.png");
+        app.stage.addChild(person5);
+        person5.scale.x=0.85;
+        person5.scale.y=0.85;
+        person5.x=350;
+        person5.y=600;
+        person5.visible=false;
+         var clock = new PIXI.Sprite.fromImage("res/clock.jpg");
+        clock.width=1170;
+        clock.height=2532;
+        clock.visible=false;
+        app.stage.addChild(clock); 
+        
+         var pointer1=new PIXI.Sprite.fromImage("res/pointer1.png");
+        pointer1.anchor.x=0.47;
+        pointer1.anchor.y=0.85;
+        pointer1.x=590;
+        pointer1.y=1126;
+        pointer1.visible=false;
+        app.stage.addChild(pointer1);
+        
+        var pointer2=new PIXI.Sprite.fromImage("res/pointer2.png");
+        pointer2.x=590;
+        pointer2.y=1126;
+        pointer2.anchor.x=1;
+        pointer2.anchor.y=0;
+       pointer2.rotation=-Math.PI/5;
+        pointer2.visible=false;
+        app.stage.addChild(pointer2);
+        
+        var deng_mie = new PIXI.Sprite.fromImage("res/dengdown.png");
+        deng_mie.anchor.set(0,0);
+        deng_mie.width=1170;
+        deng_mie.height=2532;
+        deng_mie.visible=false;
+        app.stage.addChild(deng_mie);
+        
+        var deng_up = new PIXI.Sprite.fromImage("res/dengup.jpg");
+        deng_up.anchor.set(0,0);
+        deng_up.width=1170;
+        deng_up.height=2532;
+        deng_up.visible=false;
+        app.stage.addChild(deng_up);
+          
+          
+      
+        var bg4 = new PIXI.Sprite.fromImage("res/bg4.jpg");
+        bg4.anchor.set(0,0);
+        bg4.width=1170;
+        bg4.height=2532;
+        bg4.visible=false;
+        app.stage.addChild(bg4);
+        
+  var bg3 = new PIXI.Sprite.fromImage("res/bg3.jpg");
+        bg3.anchor.set(0,0);
+        bg3.width=1170;
+        bg3.height=2532;
+        bg3.visible=false;
+        app.stage.addChild(bg3);  
+        
+        var bg0 = new PIXI.Sprite.fromImage("res/bg0.jpg");
+        bg0.anchor.set(0,0);
+        bg0.width=1170;
+        bg0.height=2532;
+        bg0.visible=true;
+        app.stage.addChild(bg0);  
         
         var bg = new PIXI.Sprite.fromImage("res/bg.png");
+        bg.anchor.set(0,0);
+        bg.width=1170;
+        bg.height=2532;
+        bg.visible=true;
         app.stage.addChild(bg);
+        
+        
+        
+        
+        
+          
+        bg0.interactive=true;
+        bg.interactive=true;
+        bg3.interactive=true;
+        bg4.interactive=true;
+        deng_mie.interactive=true;
+        deng_up.interactive=true;
+         clock.interactive=true;
+         
+        var control01=2;
+        var again=1;
+        var pp=0;   //pp操控帧频函数执行//
+        //c1、c2、c3等操控bg的点击和拖拽的总开关//
+        var c1=true;
+        var c2=true;
+        var c3=true;
+        var num=0;  //num实现bg2到bg3的间隔计数//
+        var num2=0;
+        
+        
+         var speed_w=0;
+        var quan=0;
+         
+        clock.on("click",rora);
+        function rora()
+        {
+        	quan++;
+        	if(quan==1)mp1.play(); //播放
+        	speed_w +=5;
+        }
+         
+                	 var mp1="res/voice_clock.mp3";     //钟表声音
+                      var mp1= new Audio(mp1);
+                      
+                      
+                     var mp2="res/voice_chongming.mp3";
+                     var mp2= new Audio(mp2);
+                      
+         function rora2()
+        {   
+        	
+        	
+        	pointer1.rotation+=speed_w/500; 
+        	pointer2.rotation+=speed_w/6000;
+        	clock.alpha-=1/8000*speed_w;
+        	pointer1.alpha-=1/8000*speed_w;
+        	pointer2.alpha-=1/8000*speed_w;
+        	if(clock.alpha<0.1)
+        	{
+        		app.stage.removeChild(clock);
+        		app.stage.removeChild(pointer1);
+        		app.stage.removeChild(pointer2);
+        		mp1.pause();      //停止
+        		bg4.visible=true;
+        	}
+        	
+        }
+        
+ 
+      
+             
+
+      function bg3_c()            //bg3结束，开始出现钟表
+        	{
+        		
+        		app.stage.removeChild(bg3);
+        		clock.visible=true; pointer1.visible=true; pointer2.visible=true; 
+        		pp=3;
+        		
+        	}
+           
+       
+                          
+        function cj_two()          //刚出现bg3
+        {
+        	if(num==120)
+        	{         
+        	app.stage.removeChild(bg);
+            app.stage.removeChild(bg0);  //计时三秒，bg3出现//
+            mp2.pause();
+        	bg3.visible=true;
+       
+        	 
+        	  	
+        	}
+        	
+        }
+        
+       
+       
+        bg4.on("click",bg4_c);
+        	function bg4_c()
+        	{
+        		
+        		deng_mie.visible=true;
+        		app.stage.removeChild(bg4);
+        		
+        		pp=4;
+        	}
+        	
+        	          
+                	 var mp3="res/jingbao.mp3";          //警报声音
+                      var mp3= new Audio(mp3);
+                      
+         deng_up.on("click",stop);
+        			function stop()
+                      {
+                      	mp3.pause();
+                      	app.stage.removeChild(deng_mie);
+                      	app.stage.removeChild(deng_up);
+                      	door.visible=true;
+                      person1.visible=true;
+                      person2.visible=true;
+                      person3.visible=true;
+                      person4.visible=true;
+                      person5.visible=true;
+                      }             
+                      
+        function dengkongzhi()
+        {
+        	if(num2==120)
+        		{
+        			  
+        
+        			deng_mie.visible=false;
+        			deng_up.visible=true;
+                      mp3.play();
+        			pp=0;
+        			
+        		}
+        	
+        }
+        
+        
+        bg.on("mousedown",move1);
+        function move1()
+        {
+        	if(again==1){
+        	control01=1;
+        	}
+     
+        }
+       
+        bg.on("mousemove",move);
+        function move(event)
+        { 
+        	if(c2==true){
+        	var pos =event.data.getLocalPosition(app.stage);
+        	if(control01==1){
+        	bg.x=pos.x;
+        	}
+        	
+        	}
+        }
+        
+       bg.on("mouseup",mup);
+        function mup()
+        { 
+        	if(c3==true){
+        	control01=2;
+             again=2;
+        	
+        	if(bg.x>100) 
+        	{ 
+        		pp=1;
+        	}
+        	else {bg.x=0;again=1;}
+        	if(bg.x==1170){
+        		c2=false;c3=false;
+        	} 
+        	}
+        }
+        
+        function main()
+        {
+        	
+        	
+        	
+        	
+        }
+        main();
+       
+        var speed=3;
+        var j=1;
+
+        app.ticker.add(animate);
+        function animate()
+        {
+        	
+        	if(pp==1){mp2.play();speed=speed+0.15;bg.x+=speed;   if(bg.x>=1170){bg.x=1170;  pp=2;}}
+            if(pp==2) {  num=num+1;if(j==1){cj_two();}  if(num>=320){j=2;bg3_c();}  }
+            if(pp==3){ rora2();       }
+        	if(pp==4){num2=num2+3;if(num2>=120){num2=120;dengkongzhi();}}
+        	
+        }
     </script>
 </body>
 </html>
